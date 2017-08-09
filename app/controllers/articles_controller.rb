@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
+    if params[:id]
+      redirect_to article_path(id: params[:id])
+    else
     @articles = Article.all
+    end
+
   end
   def show
     @article = Article.find(params[:id])
